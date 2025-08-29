@@ -101,9 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Form field animations
         const formGroups = document.querySelectorAll('.form-group');
         formGroups.forEach(group => {
-            const input = group.querySelector('input, select, textarea');
+            const input = group.querySelector('input, textarea');
+            const select = group.querySelector('select');
             const label = group.querySelector('label');
             
+            // Handle regular input and textarea fields
             if (input && label) {
                 input.addEventListener('focus', function() {
                     group.classList.add('focused');
@@ -119,6 +121,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (input.value) {
                     group.classList.add('focused');
                 }
+            }
+            
+            // Handle select fields differently - label is always positioned above
+            if (select && label) {
+                group.classList.add('focused'); // Always keep select labels positioned above
             }
         });
     }

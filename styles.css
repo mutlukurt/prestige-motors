@@ -834,10 +834,22 @@ section {
     padding-right: 40px;
 }
 
+.form-group select:invalid {
+    color: var(--metallic-silver);
+}
+
+.form-group select:valid {
+    color: var(--off-white);
+}
+
 .form-group select option {
     background: var(--secondary-black);
     color: var(--off-white);
     padding: 8px;
+}
+
+.form-group select option:disabled {
+    color: var(--metallic-silver);
 }
 
 .form-group input:focus,
@@ -858,10 +870,18 @@ section {
     transition: var(--transition-fast);
 }
 
+/* Special handling for select labels */
+.form-group select + label {
+    top: -8px;
+    left: 12px;
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    background: var(--primary-black);
+    padding: 0 8px;
+}
+
 .form-group input:focus + label,
 .form-group input:valid + label,
-.form-group select:focus + label,
-.form-group select:valid + label,
 .form-group textarea:focus + label,
 .form-group textarea:valid + label {
     top: -8px;
